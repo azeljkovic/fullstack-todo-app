@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { TodoList } from './List';
 import { AddTodoForm } from './AddTodoForm';
+import axios, {AxiosPromise} from 'axios';
+
 
 const initialTodos: Array<Todo> = [
   { text: 'task 1', complete: true },
   { text: 'task 2', complete: false },
   { text: 'task 3', complete: false },
 ];
+
+const tds = axios({
+  method: 'get',
+  url: 'http://localhost:3001/todos'
+});
+console.log(tds);
 
 function App() {
   const [todos, setTodos] = useState(initialTodos);
